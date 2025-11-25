@@ -20,6 +20,16 @@ public class Player : MonoBehaviour
     private bool gameStart = false; // walk finished
     private bool isWalking = false;
 
+    [Header("Guard / Door")]
+    public GameObject guard;
+    public SpriteRenderer doorSprites;
+    public Sprite doorOpen;
+    public Sprite doorClose;
+    public float doorOpenDelay;
+
+    [Header("UI")]
+    public GameObject pressStartText;
+
     private Animator anim;
     int index = 0;
 
@@ -43,7 +53,8 @@ public class Player : MonoBehaviour
             isWalking = true;
             anim.SetBool("isWalking", true);
 
-            // hide press any key ui here
+            // hide start text
+            pressStartText.SetActive(false);
 
             return;
         }
@@ -74,9 +85,22 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking", false);
             isWalking = false;
 
-            // add timer here later before game starts
-            gameStart = true;
+            StartCoroutine(Intro());
         }
+    }
+
+    private IEnumerator Intro()
+    {
+        // wait after cat arrives
+        yield return new WaitForSeconds(2f);
+
+        // open door and guard
+        doorSprites.sprite = doorOpen;
+        guard.SetActive(true);
+
+        // dialogue stuff
+
+        gameStart = true;
     }
         
     public void GetJiggyWitIt()

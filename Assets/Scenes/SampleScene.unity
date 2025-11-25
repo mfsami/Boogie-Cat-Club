@@ -879,8 +879,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1690765796}
   bounceHeight: 0.15
   bounceDur: 0.08
-  catOrigin: {x: 0, y: 0, z: 0}
-  walkSpeed: 2
+  catOrigin: {fileID: 1531084259}
+  walkSpeed: 4
+  guard: {fileID: 113308913}
+  doorSprites: {fileID: 974268760}
+  doorOpen: {fileID: 21300000, guid: 64bd8994260b5584c8b63284435718c6, type: 3}
+  doorClose: {fileID: 21300000, guid: b7c3b2c0646182e4dbbc2c313a9643cb, type: 3}
+  doorOpenDelay: 0
+  pressStartText: {fileID: 337780828}
 --- !u!95 &700560412
 Animator:
   serializedVersion: 7
