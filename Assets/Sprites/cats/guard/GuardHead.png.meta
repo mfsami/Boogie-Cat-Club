@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 6cdb9016420dedd4babb23273f347954
+guid: a44c4f946d2c2c646ae0b99c40823cab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2349437656212167901
-    second: Layer 7 (2)_0
-  - first:
-      213: -8615100555293778926
-    second: Layer 7 (2)_1
-  - first:
-      213: -2377928205259755650
-    second: Layer 7 (2)_2
-  - first:
-      213: 5510853118918464349
-    second: Layer 7 (2)_3
-  - first:
-      213: 6040499472113170155
-    second: Layer 7 (2)_4
-  - first:
-      213: 5803006227652512460
-    second: Layer 7 (2)_5
+      213: 992163911018170352
+    second: Layer 3 (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,123 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Layer 7 (2)_0
+      name: Layer 3 (2)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddcd378b911ea9020800000000000000
-      internalID: 2349437656212167901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 7 (2)_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 96
-        width: 109
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21c917190b3017880800000000000000
-      internalID: -8615100555293778926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 7 (2)_2
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 88
-        width: 14
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7f2c1865e6effed0800000000000000
-      internalID: -2377928205259755650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 7 (2)_3
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 78
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d531d72c6bb7a7c40800000000000000
-      internalID: 5510853118918464349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 7 (2)_4
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 79
-        width: 14
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be67d35144a24d350800000000000000
-      internalID: 6040499472113170155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 7 (2)_5
-      rect:
-        serializedVersion: 2
-        x: 11
         y: 0
-        width: 102
-        height: 73
+        width: 186
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cca8b9c1b6b688050800000000000000
-      internalID: 5803006227652512460
+      spriteID: 0f7433302dfd4cd00800000000000000
+      internalID: 992163911018170352
       vertices: []
       indices: 
       edges: []
@@ -286,12 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Layer 7 (2)_0: 2349437656212167901
-      Layer 7 (2)_1: -8615100555293778926
-      Layer 7 (2)_2: -2377928205259755650
-      Layer 7 (2)_3: 5510853118918464349
-      Layer 7 (2)_4: 6040499472113170155
-      Layer 7 (2)_5: 5803006227652512460
+      Layer 3 (2)_0: 992163911018170352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
