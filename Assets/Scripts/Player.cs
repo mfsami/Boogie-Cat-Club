@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     private Coroutine bounceRoutine;
 
     [Header("Walk-in Settings")]
-    private Vector3 originPoint;
-    public Transform originPointTransform;
+    
+    public Transform catOrigin;
     public float walkSpeed = 2f;
     private bool gameStart = false; // walk finished
     private bool isWalking = false;
@@ -65,12 +65,12 @@ public class Player : MonoBehaviour
     private void WalkIn()
     {
         // walk
-        transform.position = Vector3.MoveTowards(transform.position, originPointTransform.position, walkSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, catOrigin.position, walkSpeed * Time.deltaTime);
 
         // arrived
-        if (Vector3.Distance(transform.position, originPointTransform.position) < 0.01f)
+        if (Vector3.Distance(transform.position, catOrigin.position) < 0.01f)
         {
-            transform.position = originPointTransform.position;
+            transform.position = catOrigin.position;
             anim.SetBool("isWalking", false);
             isWalking = false;
 
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         if (bounceRoutine != null)
         {
             StopCoroutine(bounceRoutine);
-            transform.localPosition = originPointTransform.position;
+            transform.position = catOrigin.position;
         }
 
         bounceRoutine = StartCoroutine(Bounce());
@@ -117,12 +117,12 @@ public class Player : MonoBehaviour
             // 0 -> 1 -> 0 curve (smooth up then down)
             float curve = Mathf.Sin(t * Mathf.PI);
 
-            transform.localPosition = originPointTransform.position + Vector3.up * (curve * bounceHeight);
+            transform.position = catOrigin.position + Vector3.up * (curve * bounceHeight);
 
             yield return null;
         }
 
-        transform.localPosition = originPointTransform.position;
+        transform.position = catOrigin.position;
         bounceRoutine = null;
     }
 }
