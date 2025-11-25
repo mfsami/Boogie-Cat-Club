@@ -4,53 +4,103 @@ using System.Collections;
 using Unity.VisualScripting;
 public class Player : MonoBehaviour
 {
-    
+    [Header("Sprites / Visuals")]
     public List<Sprite> sprites = new List<Sprite>();
     public SpriteRenderer spriteRenderer;
 
+    [Header("Bounce Settings")]
     public float bounceHeight = 0.15f;
     public float bounceDur = 0.08f;
-
-    private Vector3 originPoint;
     private Coroutine bounceRoutine;
 
+    [Header("Walk-in Settings")]
+    private Vector3 originPoint;
+    public Transform originPointTransform;
+    public float walkSpeed = 2f;
+    private bool gameStart = false; // walk finished
+    private bool isWalking = false;
+
+    private Animator anim;
     int index = 0;
 
     private void Awake()
     {
-        originPoint = transform.localPosition;
+        anim = GetComponent<Animator>();
+        
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) ||
-            Input.GetKeyDown(KeyCode.RightArrow) ||
-            Input.GetKeyDown(KeyCode.UpArrow) ||
-            Input.GetKeyDown(KeyCode.DownArrow))
+        bool arrowPressed =
+        Input.GetKeyDown(KeyCode.LeftArrow) ||
+        Input.GetKeyDown(KeyCode.RightArrow) ||
+        Input.GetKeyDown(KeyCode.UpArrow) ||
+        Input.GetKeyDown(KeyCode.DownArrow);
+
+        // menu arrow game hasnt started yet
+        if (!gameStart && arrowPressed)
         {
-            StartBounce();
+            isWalking = true;
+            anim.SetBool("isWalking", true);
 
-            // randomzies, enable this when u have more sprites
+            // hide press any key ui here
 
-            //int randomDance = Random.Range(0, sprites.Count);
-            //spriteRenderer.sprite = sprites[randomDance];
+            return;
+        }
 
-            
+        // walking in
+        if (isWalking)
+        {
+            WalkIn();
+            return;
+        }
 
-            spriteRenderer.sprite = sprites[index];
+        if (gameStart && arrowPressed)
+        {
+            GetJiggyWitIt();
+        }
 
-            index++;
-            if (index >= sprites.Count)
-                index = 0;
+    }
+
+    private void WalkIn()
+    {
+        // walk
+        transform.position = Vector3.MoveTowards(transform.position, originPointTransform.position, walkSpeed * Time.deltaTime);
+
+        // arrived
+        if (Vector3.Distance(transform.position, originPointTransform.position) < 0.01f)
+        {
+            transform.position = originPointTransform.position;
+            anim.SetBool("isWalking", false);
+            isWalking = false;
+
+            // add timer here later before game starts
+            gameStart = true;
         }
     }
+        
+    public void GetJiggyWitIt()
+    {
+        StartBounce();
+
+        // randomzies, enable this when u have more sprites
+
+        //int randomDance = Random.Range(0, sprites.Count);
+        //spriteRenderer.sprite = sprites[randomDance];
+
+        spriteRenderer.sprite = sprites[index];
+        index++;
+        if (index >= sprites.Count)
+            index = 0;
+    }
+
 
     private void StartBounce()
     {
         if (bounceRoutine != null)
         {
             StopCoroutine(bounceRoutine);
-            transform.localPosition = originPoint;
+            transform.localPosition = originPointTransform.position;
         }
 
         bounceRoutine = StartCoroutine(Bounce());
@@ -67,12 +117,14 @@ public class Player : MonoBehaviour
             // 0 -> 1 -> 0 curve (smooth up then down)
             float curve = Mathf.Sin(t * Mathf.PI);
 
-            transform.localPosition = originPoint + Vector3.up * (curve * bounceHeight);
+            transform.localPosition = originPointTransform.position + Vector3.up * (curve * bounceHeight);
 
             yield return null;
         }
 
-        transform.localPosition = originPoint;
+        transform.localPosition = originPointTransform.position;
         bounceRoutine = null;
     }
 }
+
+
