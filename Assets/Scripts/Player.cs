@@ -20,22 +20,14 @@ public class Player : MonoBehaviour
     public float walkSpeed = 2f;
     private bool gameStart = false; // walk finished
     private bool isWalking = false;
+    public IntroManager introManager;
 
-    [Header("Guard / Door")]
-    public GameObject guard;
-    public SpriteRenderer doorSprites;
-    public Sprite doorOpen;
-    public Sprite doorClose;
-    public float doorOpenDelay;
 
-    [Header("UI")]
     public GameObject pressStartText;
-    public GameObject clubText;
-
     private Animator anim;
     int index = 0;
 
-    public CinemachineImpulseSource impulseSource;
+    
 
     private void Awake()
     {
@@ -90,25 +82,11 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking", false);
             isWalking = false;
 
-            StartCoroutine(Intro());
+            introManager.StartIntro();
         }
     }
 
-    private IEnumerator Intro()
-    {
-        // wait after cat arrives
-        yield return new WaitForSeconds(2f);
 
-        // open door and guard
-        clubText.SetActive(false);
-        doorSprites.sprite = doorOpen;
-        guard.SetActive(true);
-        CameraShakeManager.instance.CameraShake(impulseSource);
-
-        // dialogue stuff
-
-        gameStart = true;
-    }
         
     public void GetJiggyWitIt()
     {
@@ -123,6 +101,11 @@ public class Player : MonoBehaviour
         index++;
         if (index >= sprites.Count)
             index = 0;
+    }
+
+    public void SetGameStartTrue()
+    {
+        gameStart = true;
     }
 
 

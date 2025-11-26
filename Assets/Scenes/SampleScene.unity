@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113308914
 Transform:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 113308913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -493,6 +493,59 @@ MonoBehaviour:
     FrequencyGain: 1
     Duration: 0.5
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &481314350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481314352}
+  - component: {fileID: 481314351}
+  m_Layer: 0
+  m_Name: IntroManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &481314351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481314350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73130069fbfcf5e4a80efac7fa55c374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroManager
+  guard: {fileID: 113308913}
+  doorSprites: {fileID: 974268760}
+  doorOpen: {fileID: 21300000, guid: 64bd8994260b5584c8b63284435718c6, type: 3}
+  doorClose: {fileID: 21300000, guid: b7c3b2c0646182e4dbbc2c313a9643cb, type: 3}
+  doorOpenDelay: 2
+  pressStartText: {fileID: 337780828}
+  clubText: {fileID: 579756035}
+  impulseSource: {fileID: 1001127186}
+  player: {fileID: 700560411}
+--- !u!4 &481314352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481314350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06588, y: 0.46225, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +716,37 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &559673940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559673941}
+  m_Layer: 0
+  m_Name: '-------------- MANAGERS --------------  '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559673941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559673940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.23379, y: -2.50048, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &568032361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,14 +1098,8 @@ MonoBehaviour:
   bounceDur: 0.08
   catOrigin: {fileID: 1531084259}
   walkSpeed: 4
-  guard: {fileID: 113308913}
-  doorSprites: {fileID: 974268760}
-  doorOpen: {fileID: 21300000, guid: 64bd8994260b5584c8b63284435718c6, type: 3}
-  doorClose: {fileID: 21300000, guid: b7c3b2c0646182e4dbbc2c313a9643cb, type: 3}
-  doorOpenDelay: 0
+  introManager: {fileID: 481314351}
   pressStartText: {fileID: 337780828}
-  clubText: {fileID: 579756035}
-  impulseSource: {fileID: 1001127186}
 --- !u!95 &700560412
 Animator:
   serializedVersion: 7
@@ -1840,6 +1918,8 @@ SceneRoots:
   - {fileID: 579756038}
   - {fileID: 337780831}
   - {fileID: 1778962118}
+  - {fileID: 559673941}
   - {fileID: 471878800}
   - {fileID: 1001127187}
   - {fileID: 834400959}
+  - {fileID: 481314352}
