@@ -1,7 +1,8 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
+using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Sprites / Visuals")]
@@ -29,9 +30,12 @@ public class Player : MonoBehaviour
 
     [Header("UI")]
     public GameObject pressStartText;
+    public GameObject clubText;
 
     private Animator anim;
     int index = 0;
+
+    public CinemachineImpulseSource impulseSource;
 
     private void Awake()
     {
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
 
             // hide start text
             pressStartText.SetActive(false);
+            
 
             return;
         }
@@ -95,8 +100,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // open door and guard
+        clubText.SetActive(false);
         doorSprites.sprite = doorOpen;
         guard.SetActive(true);
+        CameraShakeManager.instance.CameraShake(impulseSource);
 
         // dialogue stuff
 
