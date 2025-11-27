@@ -13,6 +13,7 @@ public class IntroManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject clubText;
+    public GameObject dialogueBox;
 
     [Header("Camera Shake")]
     public CinemachineImpulseSource impulseSource;
@@ -28,16 +29,19 @@ public class IntroManager : MonoBehaviour
 
     private IEnumerator Intro()
     {
-        // wait after cat arrives (same as before)
+        // wait after cat arrives 
         yield return new WaitForSeconds(doorOpenDelay);
 
-        // open door and guard (same logic as before)
+        // open door and guard 
         clubText.SetActive(false);
         doorSprites.sprite = doorOpen;
         guard.SetActive(true);
         CameraShakeManager.instance.CameraShake(impulseSource);
 
-        // dialogue stuff
+        // dialogue
+        yield return new WaitForSeconds(1);
+        dialogueBox.SetActive(true);
+
 
         // tell Player that the game has started
         player.SetGameStartTrue();
